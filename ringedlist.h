@@ -27,6 +27,7 @@ class RingedIterator : public Iterator<T>
 template<typename T>
 RingedIterator<T>::RingedIterator(Data<T>* first)
 {
+    //Data<T> *test = new Data<T>; 
     this->buff = first;
     this->curr = first;
     this->start();
@@ -57,9 +58,9 @@ bool Iterator<T>::empty(){
 template <typename T>
 RingedIterator<T>::~RingedIterator()
 {
-    if(this->curr != this->buff) 
-        delete this->curr;
-    delete this->buff;   
+    //if(this->curr != this->buff) 
+    //    delete this->curr;
+    //delete this->buff;   
 }
 
 //ITERATOR END
@@ -68,20 +69,25 @@ RingedIterator<T>::~RingedIterator()
 
 template <typename T>
 RingedList<T>::RingedList(){
-    Data<T>* s = new Data<T>;
+    //Data<T>* s = new Data<T>;
     this->buff = new Data<T>;
     this->buff->value = 0;
     this->buff->next = 0x0;
     this->buff->prev = 0x0;
-    this->length = 0;    
+    this->length = 0; 
+    //Data<T> *temp = new Data<T>; //Почему так странно выделяет память?
+    //Data<T> *DEBUG = new Data<T>; //Почему так странно выделяет память?
+        
 }
 
 
 template <typename T>
-void List<T>::insert( Iterator<T> pos,const T& value){
+void List<T>::insert( Iterator<T> &pos,const T& value){
+    //Data<T> *tempTest = new Data<T>; //Почему так странно выделяет память?
+        
     if(length == 0){
         Data<T> *curr = this->buff;
-        Data<T> *temp = new Data<T>; //Почему так странно выделяет память?
+        //Old Data<T> *temp = new Data<T>; //Почему так странно выделяет память?
         Data<T> *temp2 = new Data<T>;
       
     
@@ -91,7 +97,7 @@ void List<T>::insert( Iterator<T> pos,const T& value){
         temp2->next = curr;
         temp2->prev = curr;  
     
-        curr->prev = temp2;
+        this->buff->prev = temp2;
     } else {
         Data<T> *curr = pos.pos();
         Data<T> *temp = new Data<T>;

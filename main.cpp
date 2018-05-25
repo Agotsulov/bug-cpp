@@ -7,15 +7,11 @@
 int main(int argc, char **argv) {
     std::cout << "C++ is the worst programming language!" << std::endl;
 
-    Data<int> *a1 = new Data<int>;
-    Data<int> *a2 = new Data<int>;
-    Data<int> *a3 = new Data<int>;
-    Data<int> *a4 = new Data<int>;
-    Data<int> *a5 = new Data<int>;
-
     RingedList<int> r;
     Iterator<int> i = r.iterator();
-    
+
+    //Это из-за неправильного деструктора ringediterator
+    Data<int> *bug = new Data<int>;  //Здесь ощибка. Выделятся таже память что уже использетуся в r.buff  
     r.insert(i , 4);
     i.next();
     r.insert(i, -9);

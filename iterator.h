@@ -26,7 +26,10 @@ class Iterator
 template <typename T>
 void Iterator<T>::start()
 {   
+    //Data<T> *test = new Data<T>;
     this->curr = this->buff->next;
+    //Data<T> *test2 = new Data<T>;
+    //Data<T> *test3 = new Data<T>;
 }
 
 template <typename T>

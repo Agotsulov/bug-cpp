@@ -7,7 +7,7 @@ template <typename T>
 class List
 {
     public:
-        virtual void insert( Iterator<T> pos, const T& value ); 
+        virtual void insert( Iterator<T> &pos, const T& value ); 
         
         virtual Iterator<T> erase( Iterator<T> pos );
         
